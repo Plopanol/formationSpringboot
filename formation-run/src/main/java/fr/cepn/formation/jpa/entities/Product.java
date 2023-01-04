@@ -8,7 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -16,6 +18,7 @@ import lombok.Setter;
 @SequenceGenerator(name = "seq_product", sequenceName = "seq_product", allocationSize = 1)
 @Getter
 @Setter
+@NoArgsConstructor
 public class Product {
 
 	  @Id   // Clé primaire. Plusieurs attributs @Id en cas de clé primaire composite
@@ -32,6 +35,14 @@ public class Product {
 	  // Indique à JPA d’ignorer le champ
 	  long orderCount;
 
+	public Product(String description, Integer price) {
+		super();
+		this.description = description;
+		this.price = price;
+	}
+
 	  // getters/setters
+	  
+	  
 
 }
